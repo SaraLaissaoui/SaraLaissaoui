@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSupplierOnProduct extends Migration
+class AddSupplierOnStock extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,10 @@ class AddSupplierOnProduct extends Migration
     public function up()
     {
         //
+        Schema::table('stock', function (Blueprint $table) {
+            $table->bigInteger('supplier_id')->unsigned()->index()->nullable();
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete;
+        });
     }
 
     /**
