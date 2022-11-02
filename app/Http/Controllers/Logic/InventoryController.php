@@ -63,6 +63,8 @@ class InventoryController extends Controller
     public function show($id)
     {
         return $this->Repository->getById($id);
+        return $this->presenter->handle(['name' => 'backend.inventory.show', 'data' => $data]);
+
     }
 
     /**
@@ -73,7 +75,8 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //call view edit
+        $data = $this->Repository->getById($id);
+        return $this->presenter->handle(['name' => 'backend.inventory.edit', 'data' => $data]);
     }
 
     public function update(Request $request): JsonResponse

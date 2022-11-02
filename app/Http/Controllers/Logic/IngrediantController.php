@@ -78,7 +78,7 @@ class IngrediantController extends Controller
     public function edit($id)
     {
         $data = $this->Repository->getById($id);
-        return $this->presenter->handle(['name' => 'backend.ingrediants.update', 'data' => $data]);
+        return $this->presenter->handle(['name' => 'backend.ingrediants.edit', 'data' => $data]);
     }
 
     public function update(Request $request): JsonResponse
