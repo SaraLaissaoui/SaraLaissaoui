@@ -23,8 +23,8 @@ class StockService
         $ingrediants = $request->input('ingrediants');
         $quantities = $request->input('quantity');
 
-        for ($i = 0; $i < sizeof($request->input('ingrediants')); $i++) {
+        /*for ($i = 0; $i < sizeof($request->input('ingrediants')); $i++) {
             $product->stocks()->attach($ingrediants[$i], ['quantity' => $quantities[$i]]);
-        }
+        }*/
     }
 }
