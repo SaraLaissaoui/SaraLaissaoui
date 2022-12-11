@@ -30,11 +30,15 @@ class Stock extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'quantity', 'created_at', 'updated_at','price','supplier_id'];
+    protected $fillable = ['name', 'quantity', 'created_at', 'updated_at','price'];
 
 
     public function products()
     {
         return $this->belongsToMany(Product::class) ->withPivot('qunatity');;
+    }
+    // supplier stock relationship
+    public function suppliers(){
+        return $this->belongsTo(Supplier::class);
     }
 }

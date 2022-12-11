@@ -15,8 +15,7 @@ class AddSupplierOnStock extends Migration
     {
         //
         Schema::table('stock', function (Blueprint $table) {
-            $table->bigInteger('supplier_id')->unsigned()->index()->nullable();
-            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete;
+            $table->integer('supplier_id');
         });
     }
 
