@@ -91,6 +91,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class);
 });
 
+//Tables 
+Route::resource('/tables', App\Http\Controllers\Logic\TableController::class);
 
 
 require __DIR__ . '/auth.php';
