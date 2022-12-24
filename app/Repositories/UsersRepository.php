@@ -8,24 +8,31 @@ use App\Models\User;
 
 class UsersRepository implements UserRepositoryInterface
 {
-    public function create(array $user)
-    {
-    }
-
+    
     public function getAll()
     {
         return User::all();
     }
-
-    public function getById($userId)
+    
+    public function getById($id)
     {
+        return User::find($id);
+        
+    }
+    public function create(array $data)
+    {
+        return User::create($data);
+
     }
 
-    public function update($userId, array $user)
+    public function update($id, array $data)
     {
+        User::find($id)->update($data);
     }
 
-    public function delete($userId)
+    public function delete($id)
     {
+        return User::destroy($id);
+
     }
 }

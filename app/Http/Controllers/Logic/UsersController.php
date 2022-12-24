@@ -38,8 +38,8 @@ class UsersController extends Controller
     public function create(Request $request)
     {
 
-        $dto = $request->all([]);
-        return $this->Repository->create($dto);
+        return $this->presenter->handle(['name' => 'backend.users.create', 'data' => '']);
+
     }
 
     /**
@@ -51,6 +51,9 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //call view store
+        $dto = $request->all([]);
+        $this->Repository->create($dto);
+        return redirect('/users');
     }
 
 
@@ -62,7 +65,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return $this->Repository->getById($id);
+        $data = $this->Repository->getById($id);
+        
+        return $this->presenter->handle(['name' => 'backend.users.show', 'data' => $data]);
     }
 
     /**
@@ -74,24 +79,24 @@ class UsersController extends Controller
     public function edit($id)
     {
         //call view edit
+        $data = $this->Repository->getById($id);
+        return $this->presenter->handle(['name' => 'backend.users.edit', 'data' => $data]);
     }
 
-    public function update(Request $request): JsonResponse
+    public function update(Request $request)
     {
         $id = $request->route('id');
-        $record = $request->only([
-            'client',
-            'details'
-        ]);
+        $record = $request->all();
 
-        return  $this->Repository->update($id, $record);
+        $this->Repository->update($id, $record);
+        return redirect('/users');
     }
 
-    public function destroy(Request $request)
+    public function destroy($id,Request $request)
     {
-        $id = $request->route('id');
+        //$id = $request->route('id');
         $this->Repository->delete($id);
+        return redirect('/users');
 
-        return 'okey';
     }
 }

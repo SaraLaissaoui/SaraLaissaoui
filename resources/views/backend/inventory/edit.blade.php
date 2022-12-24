@@ -7,7 +7,7 @@
         <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
             <div class="mb-4">
                 <h1 class="font-serif text-3xl font-bold underline decoration-gray-400">
-                    Edit a product in stock
+                    Modifier un produit
                 </h1>
             </div>
 

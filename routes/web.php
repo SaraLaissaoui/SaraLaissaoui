@@ -60,6 +60,8 @@ Route::post('/orders/store', [OrderController::class, 'store'])
 ->name('OrdersStore');
 Route::post('/order-item/bulk-insert', [OrderItemController::class, 'bulkInsert'])
 ->name('OrdersITemStore');
+Route::post('/users/store', [UsersController::class, 'store'])
+    ->name('UserStore');
 
 // get
 Route::post('/categories/update/{id}', [CategoryController::class, 'update'])
@@ -68,6 +70,8 @@ Route::post('/rooms/update/{id}', [RoomsController::class, 'update'])
     ->name('RoomsUpdate');
 Route::post('/inventory/update/{id}', [InventoryController::class, 'update'])
     ->name('InventoryUpdate');
+Route::post('/users/update/{id}', [UsersController::class, 'update'])
+    ->name('UsersUpdate');
 
 
 //entities controller

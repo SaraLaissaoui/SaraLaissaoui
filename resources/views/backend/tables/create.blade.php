@@ -27,20 +27,20 @@
                         <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="name" placeholder="table" />
                     </div>
                     <!-- status -->
-                    <div>
+                    <div class="mt-2">
                         <label class="block text-sm font-bold text-gray-700" for="status">
                             Statut
                         </label>
                         <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             @foreach (\App\Enums\TableStatusEnum::values() as $key=>$value )
                             <option value="{{ $key }}" >
-                                {{ $value}}</option>
+                                {{ $key}}</option>
                                 @endforeach
                             </select>
                         </div>
 
                     <!-- chairs number -->
-                    <div>
+                    <div class="mt-2">
                         <label class="block text-sm font-bold text-gray-700" for="chair">
                         Nombre de chaises
                         </label>
@@ -49,7 +49,7 @@
                     </div>
 
                     <!-- couvert number -->
-                    <div>
+                    <div class="mt-2">
                         <label class="block text-sm font-bold text-gray-700" for="couvert">
                         Nbr de couvert
                         </label>
@@ -57,13 +57,13 @@
                         <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="number" name="couvert" placeholder="" />
                     </div>
                     <!-- Table Image -->
-                    <div>                        
+                    <div class="mt-2">                        
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Uploader l'image</label>
                         <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file" name="image"/>
 
                     </div>
                     <!-- Rooms -->
-                    <div>                        
+                    <div class="mt-2">                        
                         
                         <label for="room_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choisissez une salle</label>
                         <select id="room_id" name="room_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
