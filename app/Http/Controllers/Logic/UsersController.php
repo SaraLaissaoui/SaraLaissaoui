@@ -9,6 +9,7 @@ use App\Interfaces\Repositories\UserRepositoryInterface;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -52,6 +53,7 @@ class UsersController extends Controller
     {
         //call view store
         $dto = $request->all([]);
+        $dto['password'] = Hash::make($dto['password']);
         $this->Repository->create($dto);
         return redirect('/users');
     }
@@ -87,6 +89,7 @@ class UsersController extends Controller
     {
         $id = $request->route('id');
         $record = $request->all();
+        $record['password'] = Hash::make($record['password']);
 
         $this->Repository->update($id, $record);
         return redirect('/users');
