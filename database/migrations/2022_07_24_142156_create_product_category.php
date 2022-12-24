@@ -14,7 +14,7 @@ class CreateProductCategory extends Migration
     public function up()
     {
 
-       /* Schema::create('category_product', function (Blueprint $table) {
+        Schema::create('category_product', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_id')->unsigned()->index()->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
