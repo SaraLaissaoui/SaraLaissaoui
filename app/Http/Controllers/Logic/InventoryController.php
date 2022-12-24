@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Response\PresenterDispatcher;
 use App\Interfaces\Repositories\InventoryRepositoryInterface;
 use App\Models\User;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -36,8 +37,10 @@ class InventoryController extends Controller
      */
     public function create(Request $request)
     {
+        $suppliers = Supplier::all();
 
-        return $this->presenter->handle(['name' => 'backend.inventory.create', 'data' => '']);
+
+        return $this->presenter->handle(['name' => 'backend.inventory.create', 'data' => ''])->with('suppliers',$suppliers);
     }
 
     /**
@@ -62,8 +65,11 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        return $this->Repository->getById($id);
-        return $this->presenter->handle(['name' => 'backend.inventory.show', 'data' => $data]);
+        
+        $data = $this->Repository->getById($id);
+        $supplier = Supplier::find($data->supplier_id);
+        
+        return $this->presenter->handle(['name' => 'backend.inventory.show', 'data' => $data])->with('supplier',$supplier);
 
     }
 
@@ -76,23 +82,23 @@ class InventoryController extends Controller
     public function edit($id)
     {
         $data = $this->Repository->getById($id);
-        return $this->presenter->handle(['name' => 'backend.inventory.edit', 'data' => $data]);
+        $suppliers = Supplier::all();
+
+        return $this->presenter->handle(['name' => 'backend.inventory.edit', 'data' => $data])->with('suppliers',$suppliers);
     }
 
-    public function update(Request $request): JsonResponse
+    public function update(Request $request)
     {
         $id = $request->route('id');
-        $record = $request->only([
-            'client',
-            'details'
-        ]);
+        $record = $request->all();
 
-        return  $this->Repository->update($id, $record);
+         $this->Repository->update($id, $record);
+         return redirect('/inventory');
     }
 
-    public function destroy(Request $request)
+    public function destroy($id,Request $request)
     {
-        $id = $request->route('id');
+        //$id = $request->route('id');
         $this->Repository->deleteById($id);
 
         return redirect('/inventory');

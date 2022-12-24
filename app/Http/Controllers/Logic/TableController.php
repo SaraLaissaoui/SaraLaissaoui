@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Rooms;
 use App\Models\Table;
 use Illuminate\Http\Request;
+use App\Enums\TableStatusEnum;
+use Illuminate\Validation\Rules\Enum;
+
 
 class TableController extends Controller
 {
@@ -65,7 +68,7 @@ class TableController extends Controller
         $table->status = $request->status;
         $table->chair = $request->chair;
         $table->couvert = $request->couvert;
-        $table->image = $imageName;
+        $table->image = '/table_images/'.$imageName;
         $table->room_id = $request->room_id;
         $table->save();
 
@@ -115,7 +118,9 @@ class TableController extends Controller
         //
         $request->validate([
             'name'=>'required|unique:tables|max:255',
-            'room_id'=>'required|numeric']);
+            'room_id'=>'required|numeric',
+            'status' => [new Enum(TableStatusEnum::class)],
+    ]);
 
         $table = Table::find($id);
         //Image validation and naming if uploaded
@@ -160,7 +165,7 @@ class TableController extends Controller
 
         $table = Table::find($id);
         if($table->image != 'table2.png'){
-            unlink(public_path('table_images').'/'.$table->image);
+            unlink(public_path().'/'.$table->image);
         }
         $tableName = $table->name;
         $table->delete();

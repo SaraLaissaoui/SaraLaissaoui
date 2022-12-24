@@ -83,12 +83,10 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
         $id = $request->route('id');
-        $record = $request->only([
-            'client',
-            'details'
-        ]);
+        $record = $request->all();
 
-        return  $this->Repository->update($id, $record);
+        $this->Repository->update($id, $record);
+        return redirect('/categories');
     }
 
     public function destroy($id, Request $request)

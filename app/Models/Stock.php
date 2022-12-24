@@ -30,7 +30,7 @@ class Stock extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'quantity', 'created_at', 'updated_at','price'];
+    protected $fillable = ['name', 'quantity', 'created_at', 'updated_at','price','supplier_id'];
 
 
     public function products()

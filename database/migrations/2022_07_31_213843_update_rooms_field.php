@@ -16,7 +16,7 @@ class UpdateRoomsField extends Migration
         Schema::table('room', function (Blueprint $table) {
             $table->dropColumn(['type']);
             $table->string('description');
-            $table->float('price');
+            /*$table->float('price');*/
             $table->string('photo');
         });
     }

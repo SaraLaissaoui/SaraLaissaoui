@@ -32,21 +32,13 @@
                         <textarea name="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="400"></textarea>
                     </div>
 
-                    <!-- price -->
-                    <div>
+                    <!-- photo -->
+                    <div class="mt-4">
                         <label class="block text-sm font-bold text-gray-700" for="title">
-                            price
+                            Photo
                         </label>
 
-                        <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="number" name="price" placeholder="dzd" />
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700" for="title">
-                            photo
-                        </label>
-
-                        <input class="" type="file" name="photo" />
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" name="photo" />
                     </div>
 
                     <div class="flex items-center justify-start mt-4 gap-x-2">

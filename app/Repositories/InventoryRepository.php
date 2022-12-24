@@ -27,7 +27,7 @@ class InventoryRepository implements InventoryRepositoryInterface
 
     public function update($id, array $data)
     {
-        Stock::where('id', $id)->update($data);
+        Stock::find($id)->update($data);
     }
 
     public function deleteById($id)

@@ -61,6 +61,14 @@ Route::post('/orders/store', [OrderController::class, 'store'])
 Route::post('/order-item/bulk-insert', [OrderItemController::class, 'bulkInsert'])
 ->name('OrdersITemStore');
 
+// get
+Route::post('/categories/update/{id}', [CategoryController::class, 'update'])
+    ->name('CategoriesUpdate');
+Route::post('/rooms/update/{id}', [RoomsController::class, 'update'])
+    ->name('RoomsUpdate');
+Route::post('/inventory/update/{id}', [InventoryController::class, 'update'])
+    ->name('InventoryUpdate');
+
 
 //entities controller
 Route::middleware('isAdmin')->group(function () {

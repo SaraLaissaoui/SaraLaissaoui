@@ -26,7 +26,7 @@ class RoomsRepository implements RoomsRepositoryInterface
 
     public function update($id, array $data)
     {
-        Rooms::where('id', $id)->update($data);
+        Rooms::find($id)->update($data);
     }
 
     public function delete($id)

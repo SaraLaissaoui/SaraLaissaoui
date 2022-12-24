@@ -32,7 +32,7 @@ class Rooms extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'created_at', 'updated_at', 'description', 'price', 'photo'];
+    protected $fillable = ['name', 'created_at', 'updated_at', 'description', 'photo'];
 
     public function tables(){
         return $this->hasmany(Table::class);

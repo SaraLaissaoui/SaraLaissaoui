@@ -29,8 +29,12 @@
                         <label class="block text-sm font-bold text-gray-700" for="status">
                             Statut
                         </label>
-
-                        <input value="{{ $table->status }}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="status" placeholder="statut" />
+                    <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach (\App\Enums\TableStatusEnum::values() as $key=>$value )
+                            <option value="{{ $key }}" {{ $table->status === $key ? 'selected' :''}}>
+                            {{ $value}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <!-- chairs number -->

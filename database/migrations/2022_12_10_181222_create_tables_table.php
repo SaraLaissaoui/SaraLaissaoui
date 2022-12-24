@@ -21,6 +21,7 @@ class CreateTablesTable extends Migration
             $table->integer('couvert')->default(0);
             $table->string('image');
             $table->integer('room_id');
+            $table->foreign('room_id')->references('id')->on('room')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,6 +16,7 @@ class AddSupplierOnStock extends Migration
         //
         Schema::table('stock', function (Blueprint $table) {
             $table->integer('supplier_id');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
     }
 

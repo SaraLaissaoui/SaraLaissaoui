@@ -12,7 +12,7 @@
             </div>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-                <form method="POST" action="/foods/store" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('CategoriesUpdate', $data->id) }}" enctype="multipart/form-data">
                     @csrf
                     <!-- name -->
                     <div>

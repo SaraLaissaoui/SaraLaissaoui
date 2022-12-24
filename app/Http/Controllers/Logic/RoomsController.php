@@ -46,8 +46,10 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
+
         $dto = $request->all([]);
-        $pictureName = Storage::disk('public')->put('products', $request->photo);
+        
+        $pictureName = Storage::disk('public')->put('rooms_images', $request->photo);
         $this->Repository->create($dto,$pictureName);
 
         return redirect('/rooms');
@@ -61,7 +63,8 @@ class RoomsController extends Controller
      */
     public function show($id)
     {
-        return $this->Repository->getById($id);
+        $data =  $this->Repository->getById($id);
+        return $this->presenter->handle(['name' => 'backend.rooms.show', 'data' => $data]);
     }
 
     /**
@@ -73,24 +76,25 @@ class RoomsController extends Controller
     public function edit($id)
     {
         //call view edit
+        $data = $this->Repository->getById($id);
+
+        return $this->presenter->handle(['name' => 'backend.rooms.edit', 'data' => $data]);
     }
 
-    public function update(Request $request): JsonResponse
+    public function update(Request $request)
     {
         $id = $request->route('id');
-        $record = $request->only([
-            'client',
-            'details',
-        ]);
+        $record = $request->all();
 
-        return $this->Repository->update($id, $record);
+        $this->Repository->update($id, $record);
+        return redirect('/rooms');
     }
 
-    public function destroy(Request $request)
+    public function destroy($id,Request $request)
     {
-        $id = $request->route('id');
+        //$id = $request->route('id');
         $this->Repository->delete($id);
 
-        return 'okey';
+        return redirect('/rooms');
     }
 }
