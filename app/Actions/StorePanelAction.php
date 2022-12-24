@@ -65,16 +65,26 @@ class StorePanelAction
                 'url' => 'rooms'
             ],
             '11' => [
+                'name' => 'Tables',
+                'img' => 'tables.png',
+                'url' => 'tables'
+            ],
+            '12' => [
+                'name' => 'Suppliers',
+                'img' => 'supplier.png',
+                'url' => 'suppliers'
+            ],
+            '13' => [
                 'name' => 'Customers',
                 'img' => 'specialist-user.png',
                 'url' => 'customers'
             ],
-            '12' => [
+            '14' => [
                 'name' => 'Users',
                 'img' => 'customer-service.png',
                 'url' => 'users'
             ],
-            '13' => [
+            '15' => [
                 'name' => 'Restaurant Settings',
                 'img' => 'settings.png',
                 'url' => 'settings'
