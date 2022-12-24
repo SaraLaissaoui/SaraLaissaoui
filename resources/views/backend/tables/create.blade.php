@@ -5,10 +5,10 @@
 <div>
     <div class="flex flex-col items-center min-h-screen bg-gray-100 sm:justify-center sm:pt-0">
         <div class="flex justify-start py-2">
-                <a href="/tables" class="px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Back</a>
+                <a href="/tables" class="px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Retour</a>
             </div>
-        <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
-            
+
+        <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">   
             <div class="mb-4">
                 <h1 class="font-serif text-3xl font-bold underline decoration-gray-400">
                     Ajouter une table
@@ -51,14 +51,14 @@
                     <!-- couvert number -->
                     <div class="mt-2">
                         <label class="block text-sm font-bold text-gray-700" for="couvert">
-                        Nbr de couvert
+                        Nombre de couvert
                         </label>
 
                         <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="number" name="couvert" placeholder="" />
                     </div>
                     <!-- Table Image -->
                     <div class="mt-2">                        
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Uploader l'image</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Uploader la photo</label>
                         <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file" name="image"/>
 
                     </div>
@@ -77,7 +77,7 @@
 
                     <div class="flex items-center justify-start mt-4 gap-x-2">
                         <button type="submit" class="px-6 py-2 text-sm font-semibold rounded-md shadow-md text-sky-100 bg-sky-500 hover:bg-sky-700 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300">
-                            Save
+                            Confirmé
                         </button>
                     </div>
                 </form>

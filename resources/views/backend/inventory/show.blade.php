@@ -3,11 +3,14 @@
 @section('content')
 <div>
     <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
+        <div class="flex justify-start py-2">
+            <a href="/inventory" class="px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Retour</a>
+        </div>
 
         <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
 
             <div class="mb-4">
-                <h1 class="font-serif text-3xl font-bold underline decoration-gray-400"> Ingrediant</h1>
+                <h1 class="font-serif text-3xl font-bold underline decoration-gray-400">Ingrediant</h1>
             </div>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
@@ -30,8 +33,8 @@
                                 
                             </div>
                             <div class="flex flex-row justify-between mt-4">
-                            <span class="text-sm text-gray-600">quantity</span>
-                                    <span class="text-sm text-gray-600">price</span>
+                            <span class="text-sm text-gray-600">Quantité</span>
+                                    <span class="text-sm text-gray-600">Prix</span>
                                
                             </div>
                             <div class="flex flex-row justify-between">

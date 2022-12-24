@@ -3,6 +3,9 @@
 @section('content')
 <div>
     <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
+        <div class="flex justify-start py-2">
+            <a href="/suppliers" class="px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Retour</a>
+        </div>
 
         <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
 
@@ -27,7 +30,7 @@
                                 <p class="text-base text-gray-700">{{ $supplier->phone }}</p>
                             </div>
                             <div class="flex flex-row justify-between mt-4">
-                                <span class="text-sm text-gray-600">Address</span>
+                                <span class="text-sm text-gray-600">Adresse</span>
                                 <span class="text-sm text-gray-600">Email</span>
                             </div>
                             <div class="flex flex-row justify-between">
