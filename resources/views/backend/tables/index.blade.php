@@ -7,10 +7,10 @@
 
 
     <div class="flex justify-start">
-        <a href="{{ route('dashboard') }}" class="px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Back</a>
+        <a href="{{ route('dashboard') }}" class="px-4 py-2 font-bold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Retour</a>
     </div>
     <div class="flex justify-end mt-10">
-        <a href="{{ route('tables.create') }}" class="px-2 py-1 bg-blue-500 rounded-md text-sky-100 hover:bg-blue-700">+ Ajouter Une Table</a>
+        <a href="{{ route('tables.create') }}" class="px-2 py-1 bg-blue-500 rounded-md text-sky-100 hover:bg-blue-700">Ajouter Une Table</a>
     </div>
 
 
@@ -22,7 +22,7 @@
 
                 <table class="min-w-full">
                     <tr>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Name</th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Nom</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Status</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Chaise</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Couvert</th>
