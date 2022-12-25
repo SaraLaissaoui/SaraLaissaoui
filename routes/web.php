@@ -18,6 +18,9 @@ use App\Http\Controllers\Logic\RoomsController;
 use App\Http\Controllers\Logic\SettingsController;
 use App\Http\Controllers\Logic\TypesController;
 use App\Http\Controllers\Logic\UsersController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\Logic\ChartController;
+use App\Http\Controllers\PermissionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +38,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+    Route::get('/chart',  [ChartController::class, 'stock'])->name('chart');
 //post
 Route::get('/bill/view/{id}', [BillController::class, 'show'])
     ->name('billView');
@@ -103,6 +108,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class);
 });
 
+
+Route::resource('roles', App\Http\Controllers\RolesController::class);
+Route::resource('permissions', App\Http\Controllers\PermissionsController::class);
 //Tables 
 Route::resource('/tables', App\Http\Controllers\Logic\TableController::class);
 Route::resource('/suppliers', App\Http\Controllers\SupplierController::class);

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
@@ -22,21 +22,20 @@ class ChartController extends Controller
         $stock =DB::table("stock")
         ->select(DB::raw('name AS Produit, quantity as Stock'))
         ->orderBy('Produit')
-        ->groupBy(DB::raw('Produit'))
+        ->groupBy(DB::raw('Stock , Produit'))
         ->get();
-   
-
- 
+        
         $labels = [];
         $data = [];
 
-        $values = $stock->values()->toArray();
-        foreach($values as $value){
-            $data [] = $value->Stock;
-            $labels [] = $value->Produit;
+        //$values = $stock->values()->toArray();
+        foreach($stock as $s){
+            $data [] = $s->Stock;
+            $labels [] = $s->Produit;
         }
               
-        return view('backend.chart.stock', compact('labels', 'data'));
+        
+        return view('backend.chart.stock')->with('labels',$labels)->with('data',$data);
     }
 
     public function orders()
