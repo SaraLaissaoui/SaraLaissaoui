@@ -41,7 +41,32 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
-    Route::get('/chart',  [ChartController::class, 'stock'])->name('chart');
+Route::get('/chart',  [ChartController::class, 'stock'])->name('chart');
+
+/* Cashier */
+Route::get('/cashier', 'App\Http\Controllers\Cashier\CashierController@index');
+Route::get('/cashier/getTable', 'App\Http\Controllers\Cashier\CashierController@getTables');
+Route::get('/cashier/getMenuByCategory/{category_id}', 'App\Http\Controllers\Cashier\CashierController@getMenuByCategory');
+Route::get('/cashier/getSaleDetailsByTable/{table_id}', 'App\Http\Controllers\Cashier\CashierController@getSaleDetailsByTable');
+
+Route::post('/cashier/orderFood', 'App\Http\Controllers\Cashier\CashierController@orderFood');
+Route::post('/cashier/confirmOrderStatus', 'App\Http\Controllers\Cashier\CashierController@confirmOrderStatus');
+Route::post('/cashier/cancelOrder', 'App\Http\Controllers\Cashier\CashierController@cancelOrder');
+Route::post('/cashier/deleteSaleDetail', 'App\Http\Controllers\Cashier\CashierController@deleteSaleDetail');
+Route::post('/cashier/cancelSaleDetail', 'App\Http\Controllers\Cashier\CashierController@cancelSaleDetail');
+
+Route::post('/cashier/savePayment', 'App\Http\Controllers\Cashier\CashierController@savePayment');
+Route::post('/cashier/displayNote', 'App\Http\Controllers\Cashier\CashierController@displayNote');
+
+Route::post('/cashier/increaseQuantity', 'App\Http\Controllers\Cashier\CashierController@increaseQuantity');
+Route::post('/cashier/decreaseQuantity', 'App\Http\Controllers\Cashier\CashierController@decreaseQuantity');
+
+
+//Printing
+Route::get('/cashier/showReceipt/{saleID}', 'App\Http\Controllers\Cashier\CashierController@showReceipt');
+Route::get('/cashier/showNote/{saleID}', 'App\Http\Controllers\Cashier\CashierController@showNote');
+/* End Cashier */
+
 //post
 Route::get('/bill/view/{id}', [BillController::class, 'show'])
     ->name('billView');
